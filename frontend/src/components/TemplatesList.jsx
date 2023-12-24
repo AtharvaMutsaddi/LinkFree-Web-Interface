@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { fetchTemplates } from "../services/apiFunctions";
 import {Link} from 'react-router-dom';
-import { useTheme } from "@mui/material/styles";
+// import { useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
