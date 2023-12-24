@@ -20,6 +20,14 @@ export const getReadMe= async (encodedName) => {
     throw error;
   }
 }
+export const updateViews= async (encodedName) => {
+  try {
+    const response = await instance.post(`/template/${encodedName}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+}
 export const downloadTemplate= async (encodedName) => {
   try {
     const response = await instance.get(`/download/${encodedName}`);

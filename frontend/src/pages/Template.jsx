@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { downloadTemplate, getReadMe } from "../services/apiFunctions";
+import { getReadMe, updateViews } from "../services/apiFunctions";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -21,6 +21,7 @@ const Template = () => {
 
   useEffect(() => {
     fetchData();
+    updateViews(encodedName)
   }, [encodedName]);
 
   const handleButtonClick = async () => {
@@ -78,6 +79,8 @@ const Template = () => {
           margin: "auto",
           border: "2px solid black",
           padding: "2rem",
+          background: 'black',
+          color:'white'
         }}
       >
         {readMe ? (
