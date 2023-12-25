@@ -1,8 +1,5 @@
-// About.js (example filename)
 import React from "react";
 import styled from "styled-components";
-import { AwesomeButton } from "react-awesome-button";
-import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 
 const Container = styled.div`
   text-align: center;
@@ -19,27 +16,11 @@ const Heading = styled.h1`
   margin-bottom: 20px;
 `;
 
-const Paragraph = styled.p`
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #555;
-`;
-
 const About = () => {
   return (
     <>
       <Container>
         <Heading>About Page</Heading>
-        <Paragraph>
-          Contribute to the original repo by clicking below
-        </Paragraph>
-        {/* Add more content as needed */}
-        <AwesomeButton
-          type="secondary"
-          href="https://github.com/MichaelBarney/LinkFree"
-        >
-          Click Me!
-        </AwesomeButton>
       </Container>
     </>
   );

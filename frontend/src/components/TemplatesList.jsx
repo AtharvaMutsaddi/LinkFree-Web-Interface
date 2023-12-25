@@ -7,6 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button, Pagination, Stack } from "@mui/material";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import { RWebShare } from "react-web-share";
 
 const TemplatesList = () => {
   const [templates, setTemplates] = useState([]);
@@ -32,7 +33,10 @@ const TemplatesList = () => {
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Ready Templates</h1>
-      <Stack spacing={2} sx={{ width:'80%',margin: 'auto',fontSize:'8rem' }}>
+      <Stack
+        spacing={2}
+        sx={{ width: "80%", margin: "auto", fontSize: "8rem" }}
+      >
         <Pagination
           count={Math.ceil(templates.length / templatesPerPage)}
           page={page}
@@ -63,11 +67,41 @@ const TemplatesList = () => {
             </Box>
             <Box sx={{ display: "flex" }}>
               <Button>
-                <Link to={`/template/${encodeURIComponent(template.fileName)}`}>
+                <Link
+                  to={`/template/${encodeURIComponent(template.fileName)}`}
+                  style={{
+                    fontSize: "20px",
+                    border: "none",
+                    outline: "none",
+                    backgroundColor: "transparent",
+                    color: "#034f84",
+                    padding: "8px 16px",
+                  }}
+                >
                   View
                 </Link>
               </Button>
-              <Button>Share</Button>
+              <RWebShare
+                data={{
+                  text: "Visit our open source application 'LinkFree'. View/Download various templates and get a chance to contribute to the original LinkFree repository ",
+                  url: `/template/${encodeURIComponent(template.fileName)}`,
+                  title: `${template.fileName}`,
+                }}
+                onClick={() => console.log("shared successfully!")}
+              >
+                <button
+                  style={{
+                    fontSize: "20px",
+                    border: "none",
+                    outline: "none",
+                    backgroundColor: "transparent",
+                    color: "#034f84",
+                    padding: "8px 16px",
+                  }}
+                >
+                  Share 🔗
+                </button>
+              </RWebShare>
               <Button>
                 <VisibilityIcon />
                 <span style={{ marginLeft: "10px" }}>
