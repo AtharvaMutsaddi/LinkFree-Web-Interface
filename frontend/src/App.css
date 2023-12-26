@@ -1,0 +1,10 @@
+.awesome-button {
+  margin-bottom: 20px;
+  font-size: 25px;
+  margin-right: 100px;
+  margin-left: 100px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 280px;
+  height: 60px;
+}

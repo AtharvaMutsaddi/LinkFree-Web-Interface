@@ -3,44 +3,45 @@ import TemplatesList from "../components/TemplatesList";
 import { AwesomeButton } from "react-awesome-button";
 import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 import styled from "styled-components";
+import "../App.css";
 
 const Container = styled.div`
   text-align: center;
   margin: 50px auto;
-  padding: 20px;
+  padding: 60px;
   border: 2px solid #ccc;
   border-radius: 8px;
-  max-width: 600px;
+  width: 80%;
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.2rem;
+  font-size: 2rem;
   line-height: 1.6;
   color: #555;
 `;
 const Home = () => {
   return (
     <div>
+      <TemplatesList></TemplatesList>
       <Container>
         <Paragraph>
-          Contribute to the original and our repository by clicking below
+          Contribute to the original repository and ours by clicking below:
         </Paragraph>
         <AwesomeButton
           type="secondary"
+          className="awesome-button"
           href="https://github.com/MichaelBarney/LinkFree"
         >
-          Original repo
+          Visit Original Repo
         </AwesomeButton>
-        <br />
-        <br />
         <AwesomeButton
           type="secondary"
+          className="awesome-button"
           href="https://github.com/AtharvaMutsaddi/LinkFree-Web-Interface"
         >
-          Our repo
+          Visit Our Repo
         </AwesomeButton>
       </Container>
-      <TemplatesList></TemplatesList>
     </div>
   );
 };
