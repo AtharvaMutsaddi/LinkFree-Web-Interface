@@ -79,7 +79,7 @@ const Template = () => {
           margin: "auto",
           border: "2px solid black",
           padding: "2rem",
-          background: 'black',
+          background: '#202020',
           color:'white'
         }}
       >

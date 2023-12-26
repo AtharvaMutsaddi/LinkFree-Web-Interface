@@ -1,55 +1,48 @@
 import ResponsiveAppBar from "../src/components/Navbar";
 import Home from "./pages/Home";
-import React from 'react';
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Template from "./pages/Template";
-import CssBaseline from '@mui/material/CssBaseline'; // Import CssBaseline
+import CssBaseline from "@mui/material/CssBaseline";
 
 import About from "./pages/About";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-// import ResponsiveAppBar from "../src/components/Navbar";
-
-
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
-
-  const [darkMode, setDarkMode] = React.useState(false);
+  const storedTheme = localStorage.getItem("theme");
+  const [darkMode, setDarkMode] = React.useState(storedTheme === "dark");
 
   // Define your light and dark themes
   const lightTheme = createTheme({
     palette: {
-      mode: 'light',
-      // Define your light mode palette colors here
+      mode: "light",
     },
   });
 
   const darkTheme = createTheme({
     palette: {
-      mode: 'dark',
-      // Define your dark mode palette colors here
+      mode: "dark",
     },
   });
 
   const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
+    const newMode = !darkMode;
+    setDarkMode(newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light"); // Save selected theme mode to localStorage
   };
 
   return (
     <Router>
-      <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
-      <CssBaseline />
-      {/* Pass toggleDarkMode as a prop to your main component */}
-      <ResponsiveAppBar toggleDarkMode={toggleDarkMode} />
-      <div className="App">
-        {/* <ResponsiveAppBar></ResponsiveAppBar> */}
-        <Routes>
-          <Route path="/" element={<Home />}/>
-          <Route path="/template/:encodedName" element={<Template />}/>
-          <Route path="/about" element={<About/>} />
-        </Routes>
-
-      </div>
+      <ThemeProvider theme={darkMode ? lightTheme : darkTheme}>
+        <CssBaseline />
+        <ResponsiveAppBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/template/:encodedName" element={<Template />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
       </ThemeProvider>
     </Router>
   );
