@@ -1,7 +1,6 @@
 import React from "react";
 import TemplatesList from "../components/TemplatesList";
 import { AwesomeButton } from "react-awesome-button";
-import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
 import styled from "styled-components";
 import "../App.css";
 

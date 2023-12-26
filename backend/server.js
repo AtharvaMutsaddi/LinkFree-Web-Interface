@@ -9,19 +9,18 @@ const secrets=require('./secrets.json')
 
 // init
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001;
 
 // middleware
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-// app.use('/api',apiRoutes);
 
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on http://${process.env.HOSTNAME || "localhost"}:${port}`);
 });
 
-// Mongo DB connection
+// Mongo DB connection- use ur own connection string here in a secrets.json file
 mongoose.connect(secrets.mongo_connection_string, {
   useNewUrlParser: true,
   useUnifiedTopology: true, 

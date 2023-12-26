@@ -27,7 +27,7 @@ const Template = () => {
   const handleButtonClick = async () => {
     const folderName=decodeURIComponent(encodedName)
     try {
-      const response = await fetch("http://localhost:3001/api/download", {
+      const response = await fetch(`http://${process.env.HOSTNAME || "localhost"}:${process.env.PORT || 3001}/api/download`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
